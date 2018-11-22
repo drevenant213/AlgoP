@@ -1,0 +1,40 @@
+
+package algop;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Random;
+
+public class AlgoP {
+
+ 
+    public static void main(String[] args) {
+        
+        Random ran=new Random();
+        String arch = "C:/Users/Administrator/Desktop/Arch/file.txt";
+        int number;
+        
+        try{
+            FileWriter ca = new FileWriter(arch);
+            BufferedWriter bf = new BufferedWriter(ca);
+            PrintWriter sarch = new PrintWriter (bf);
+            
+            for(int i=0; i<10;i++){
+                number=(int)(ran.nextDouble()*10+0);
+                sarch.print(number+"\n");
+            }
+            sarch.close();
+        }
+        
+        catch (FileNotFoundException fnf){
+            System.out.println("File wasn't found");
+        }
+        catch (IOException ioe){
+            System.out.println("Can't read the file");
+        }
+    }
+    
+}
